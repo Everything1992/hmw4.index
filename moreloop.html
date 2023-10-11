@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Learn about compound interest">
+    <title>Learn about Compound Interest</title>
+    <style>
+        body {
+            background-color: lavender;
+            color: blue;
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #000;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Learn about Compound Interest</h1>
+
+    <script>
+        // Function to calculate compound interest
+        function calculateInterest(principal, rate, years) {
+            const compoundRate = 1 + rate;
+            return (principal * Math.pow(compoundRate, years)).toFixed(2);
+        }
+
+        // Create tables for different interest rates
+        const interestRates = [0.05, 0.06, 0.07];
+
+        interestRates.forEach(rate => {
+            document.write(`<h2>Interest Rate: ${rate * 100}%</h2>`);
+            document.write('<table>');
+            document.write('<tr><th>Year</th><th>Amount on deposit</th><th>Interest Rate</th></tr>');
+
+            for (let year = 1; year <= 5; year++) {
+                const principal = 1000;
+                const amount = calculateInterest(principal, rate, year);
+                document.write(`<tr><td>${year}</td><td>${amount}</td><td>${rate}</td></tr>`);
+            }
+
+            document.write('</table>');
+        });
+    </script>
+</body>
+</html>
