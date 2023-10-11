@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hollow Square Generator">
+    <title>Hollow Square Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hollow Square Generator</h1>
+    
+    <form id="squareForm">
+        <label for="size">Enter a number (2-50):</label>
+        <input type="number" id="size" name="size" min="2" max="50" required>
+        <button type="button" onclick="generateSquare()">Generate</button>
+        <button type="reset">Clear</button>
+    </form>
+
+    <div id="squareOutput"></div>
+
+    <script>
+        function generateSquare() {
+            const size = parseInt(document.getElementById("size").value);
+
+            if (isNaN(size) || size < 2 || size > 50) {
+                document.getElementById("squareOutput").innerHTML = "Please enter a valid number between 2 and 50.";
+            } else {
+                let square = "";
+                for (let i = 1; i <= size; i++) {
+                    for (let j = 1; j <= size; j++) {
+                        if (i === 1 || i === size || j === 1 || j === size) {
+                            square += "*";
+                        } else {
+                            square += "&nbsp;"; // Use a non-breaking space
+                        }
+                    }
+                    square += "<br>";
+                }
+                document.getElementById("squareOutput").innerHTML = square;
+            }
+        }
+    </script>
+</body>
+</html>
