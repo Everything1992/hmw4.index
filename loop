@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="CNIT 133 Homework 4 - Part 1">
+    <title>Part 1 - Looping Statements</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body style="background-color: lavender;">
+    <h1 style="color: blue;">Part 1 - Looping Statements</h1>
+    <h2>Calculating Products and Sums</h2>
+    <div id="results"></div>
 
+    <script>
+        // Script using for loop to calculate products and sums
+        let products = 1;
+        let sums = 0;
+        
+        for (let i = 5; i <= 25; i += 4) {
+            products *= i;
+            sums += i;
+        }
+
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = `
+            <p>The result of 5 * 9 * 13 * 17 * 21 * 25 is ${products.toLocaleString()}.</p>
+            <p>The result of 5 + 9 + 13 + 17 + 21 + 25 is ${sums.toLocaleString()}.</p>
+        `;
+
+        // Script using while loop to calculate products and sums
+        // Adapt this part for the while loop as needed
+        let productsWhile = 1;
+        let sumsWhile = 0;
+        let num = 3;
+
+        while (num <= 18) {
+            productsWhile *= num;
+            sumsWhile += num;
+            num += 3;
+        }
+        
+        resultsDiv.innerHTML += `
+            <h2>Using While Loop</h2>
+            <p>The result of 3 * 6 * 9 * 12 * 15 * 18 is ${productsWhile.toLocaleString()}.</p>
+            <p>The result of 3 + 6 + 9 + 12 + 15 + 18 is ${sumsWhile.toLocaleString()}.</p>
+        `;
+    </script>
+
+    <!-- Implement jQuery UI draggable here -->
+    <script>
+        $(document).ready(function () {
+            $("#draggable-element").draggable();
+        });
+    </script>
+</body>
+</html>
